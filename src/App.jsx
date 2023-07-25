@@ -73,8 +73,6 @@ const StartGaming = () =>{
         if (j==0 || j==5) {
           cellule = document.createElement('td')
           cellule.className = 'w-8 h-8'
-          //cellule.id = `${i}${j}`
-          //cellule.addEventListener("change",MoveToNextBox)
           row.appendChild(cellule)
 
         }else {
@@ -86,14 +84,14 @@ const StartGaming = () =>{
     table.appendChild(row)
     setkeyNumber(() => generateKey())
 }}
-/*const MoveToNextBox = (eParent , e)=>{
-  const index =Array. prototype.indexOf.call(eParent, e)
-}*/
+
 
 const handelActiveRows = (e)=>{
     let activeRowNumber = document.getElementById('activeRow').innerText
+    const cels = Array.from(e.children)
+    console.log( cels.slice(1, -1))
     if (e.id == activeRowNumber) {
-      for (const box of e.children.slice(1, 5)) {
+      for (const box of cels) {
         //console.log(box)
         box.contentEditable  = 'true'
       }
