@@ -73,6 +73,8 @@ const StartGaming = () =>{
         if (j==0 || j==5) {
           cellule = document.createElement('td')
           cellule.className = 'w-8 h-8'
+          cellule.id = `${i}${j}`
+          //cellule.addEventListener("change",MoveToNextBox)
           row.appendChild(cellule)
 
         }else {
@@ -84,10 +86,14 @@ const StartGaming = () =>{
     table.appendChild(row)
     setkeyNumber(() => generateKey())
 }}
+/*const MoveToNextBox = (eParent , e)=>{
+  const index =Array. prototype.indexOf.call(eParent, e)
+}*/
+
 const handelActiveRows = (e)=>{
     let activeRowNumber = document.getElementById('activeRow').innerText
     if (e.id == activeRowNumber) {
-      for (const box of e.children) {
+      for (const box of e.children.slice(1, 5)) {
         //console.log(box)
         box.contentEditable  = 'true'
       }
@@ -161,7 +167,7 @@ const Win = ({iswin})=>{
       const h =	window.innerHeight
     return (
     <>
-      <Confetti className='absolute mx-auto' width={w} height={h} recycle={iswin} />
+      <Confetti className='absolute mx-auto' width={w} height={'400vh'} recycle={iswin} />
       <div className=' bg-slate-300 w-3/5 max-md:w-full h-40 flex flex-col justify-center items-center mx-auto absolute top-[20%]'>
         <h1 className='text-xl font-bold'>wa rba7tiii 🥳</h1>
         <button onClick={StartGaming} className={`flex justify-center items-center bg-green-600 text-white rounded-lg text-xl max-w-max px-1 cursor-pointer duration-500 ${liHoverStyle}`}>
