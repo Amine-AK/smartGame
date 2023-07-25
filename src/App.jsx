@@ -73,7 +73,7 @@ const StartGaming = () =>{
         if (j==0 || j==5) {
           cellule = document.createElement('td')
           cellule.className = 'w-8 h-8'
-          cellule.id = `${i}${j}`
+          //cellule.id = `${i}${j}`
           //cellule.addEventListener("change",MoveToNextBox)
           row.appendChild(cellule)
 
