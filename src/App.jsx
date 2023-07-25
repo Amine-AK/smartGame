@@ -165,7 +165,7 @@ const Win = ({iswin})=>{
       const h =	window.innerHeight
     return (
     <>
-      <Confetti className='absolute mx-auto' width={w} height={'400vh'} recycle={iswin} />
+      <Confetti className='absolute mx-auto' width={w} height={'400px'} recycle={iswin} />
       <div className=' bg-slate-300 w-3/5 max-md:w-full h-40 flex flex-col justify-center items-center mx-auto absolute top-[20%]'>
         <h1 className='text-xl font-bold'>wa rba7tiii 🥳</h1>
         <button onClick={StartGaming} className={`flex justify-center items-center bg-green-600 text-white rounded-lg text-xl max-w-max px-1 cursor-pointer duration-500 ${liHoverStyle}`}>
