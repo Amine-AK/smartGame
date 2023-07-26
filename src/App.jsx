@@ -78,6 +78,7 @@ const StartGaming = () =>{
         }else {
           cellule = document.createElement('td')
           cellule.className = tdNoActiveStyle
+          cellule.addEventListener("keyup",(e)=>{checkInput(e)})
           row.appendChild(cellule)
         } 
       }
@@ -91,7 +92,7 @@ const handelActiveRows = (e)=>{
     const cels = Array.from(e.children)
     console.log( cels.slice(1, -1))
     if (e.id == activeRowNumber) {
-      for (const box of cels) {
+      for (const box of cels.slice(1, -1)) {
         //console.log(box)
         box.contentEditable  = 'true'
       }
@@ -182,7 +183,19 @@ const Win = ({iswin})=>{
     return <span></span>
   }
 }
-
+const checkInput = (event)=> {
+  let cell = event.target
+  console.log(cell)
+  if (cell.innerText.length >= 1) {
+    let row = cell.parentNode;
+    let nextCell = cell.nextElementSibling;
+    console.log('row =>' + row)
+    console.log('nextCell =>' + nextCell)
+    if (nextCell) {
+      nextCell.focus();
+    } 
+  }
+}
   return (
     <>
     <Win iswin={isWin}/>
