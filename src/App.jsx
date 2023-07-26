@@ -96,6 +96,7 @@ const handelActiveRows = (e)=>{
         //console.log(box)
         box.contentEditable  = 'true'
       }
+       cels[1].focus()
     }
     console.log(e.id)
     console.log(activeRow)
